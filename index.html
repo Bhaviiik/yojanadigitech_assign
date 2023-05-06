@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Yojana Digitech (OPC) Private Limited </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="left-side">
+
+                <div class="address details">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="topic">Address</div>
+                    <div class="text-one">HOUSE NO 3880 PLOT NO 57 </div>
+                    <div class="text-two">MEGHDOOT VILLAS SONEGAON </div>
+                    <div class="text-three">NAGPUR</div>
+                </div>
+
+                <div class="contact details">
+                    <i class="fas fa-envelope"></i>
+                    <div class="topic">E-mail</div>
+                    <div class="text-one">yojanadigitech@gmail.com</div>
+                </div>
+            </div>
+
+            <div class="right-side">
+                <div class="topic-text">Contact Us!</div>
+                <p>Any queries related to YOJANA DIGITECH, you can always send us message from here.</p>
+                <form action="" name="Conatct Us-Yojana Digitech">
+                    <input style="visibility: hidden;" type="text" name="Timestamp" class="date">
+                    <div class="input-box">
+                        <input name="Name" type="text" placeholder="Enter Your Name">
+                    </div>
+                    <div class="input-box">
+                        <input name="E-mail" type="email" placeholder="Enter Your E-mail">
+                    </div>
+                    <div class="input-box message-box">
+                        <textarea name="Message" placeholder="Enter Your Message"></textarea>
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Send Now">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwDXuO_0aCXRjgGFOazlaKpB_pehZDxiPGR92kWR_hj5q1wvmKrfOWOh8eq2cbKwDQl/exec';
+        const form = document.forms['Conatct Us-Yojana Digitech']
+
+        const date = form.querySelector(".date");
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = today.getMonth()+1;
+        var day = today.getDate();
+        var finalValue =day+"-"+month+"-"+year;
+
+        date.value = finalValue;
+        console.log(date.value);
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    form.reset()
+                    console.log('Success!', response)
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+</body>
+
+</html>
