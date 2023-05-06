@@ -70,9 +70,10 @@
             fetch(scriptURL, { method: 'POST', body: new FormData(form) })
                 .then(response => {
                     form.reset()
-                    console.log('Success!', response)
+                    alert("Successfully Sent!");
+                    // console.log('Success!', response)
                 })
-                .catch(error => console.error('Error!', error.message))
+                .catch(error => alert("Unsuccessfull Entry!"))
         })
     </script>
 
